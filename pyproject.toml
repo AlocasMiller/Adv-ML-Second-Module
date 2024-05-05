@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "adv-ml-second-module"
+version = "0.1.0"
+description = ""
+authors = ["AlocasMiller <129418751+AlocasMiller@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+datasets = "^2.19.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
