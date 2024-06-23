@@ -1,0 +1,48 @@
+{
+    "os": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.0",
+    "heartbeatAt": "2024-05-11T15:48:36.930122",
+    "startedAt": "2024-05-11T15:48:32.116415",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "train",
+        "--dataset=datasets/train_essays.csv"
+    ],
+    "state": "running",
+    "program": "C:\\Users\\ALS\\Documents\\GitHub\\Adv-ML-Second-Module\\model.py",
+    "codePathLocal": "model.py",
+    "codePath": "model.py",
+    "git": {
+        "remote": "https://github.com/AlocasMiller/Adv-ML-Second-Module.git",
+        "commit": "9e91e571d794e9f653364e5d5a46e354d5767475"
+    },
+    "email": "129418751+AlocasMiller@users.noreply.github.com",
+    "root": "C:/Users/ALS/Documents/GitHub/Adv-ML-Second-Module",
+    "host": "MILLER-PC",
+    "username": "ALS",
+    "executable": "C:\\Users\\ALS\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2100.0,
+        "min": 0.0,
+        "max": 2100.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2100.0,
+            "min": 0.0,
+            "max": 2100.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 237.83041763305664,
+            "used": 185.46691131591797
+        }
+    },
+    "memory": {
+        "total": 17.826717376708984
+    }
+}

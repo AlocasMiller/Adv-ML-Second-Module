@@ -1,10 +1,13 @@
+import cp as cp
 import numpy as np
 import pandas as pd
 from pathlib import Path
 import torch
 from sklearn.model_selection import train_test_split
+from sympy import content
+from sympy.abc import r
 from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification, trainer
-from transformers import AutoTokenizer, BertForSequenceClassification
+from transformers import BertTokenizerFast, BertForSequenceClassification
 from transformers import Trainer, TrainingArguments
 from datasets import load_metric
 from transformers import EvalPrediction
@@ -136,8 +139,8 @@ class ClassificationTrainer():
         val_labels = val_labels[:max_samples['val']]
         test_labels = test_labels[:max_samples['test']]
 
-        print(train_texts[0])
-        print(train_labels[0])
+        # print(train_texts[0])
+        # print(train_labels[0])
 
         self.tokenizer = BertTokenizerFast.from_pretrained(
                 pretrained_transformer_name)
@@ -203,10 +206,10 @@ classification_trainer = ClassificationTrainer(
     pretrained_transformer_name='cointegrated/rubert-tiny2',
     dataset_dct={'train':'train.csv', 'test': 'test.csv'},
     warmup_steps=100,
-    num_train_epochs=3
+    num_train_epochs=1 # вот тут вернуть 3!!!!!!!!!!!!!!!
 )
 
-classification_trainer.trainer.train()
+# classification_trainer.trainer.train()
 
 metrics = classification_trainer.trainer.evaluate()
 
@@ -216,13 +219,10 @@ classification_trainer.trainer.save_metrics("after_train_eval",
 
 text = 'Всем привет!'
 
-
-
 encoding = classification_trainer.tokenizer(text, return_tensorse='pt')
 encoding = {k: v.to(trainer.model.device) for k,v in encoding.items()}
 
 outputs = trainer.model(**encoding)
-
 
 logits = outputs.logits
 
@@ -243,7 +243,9 @@ def inference(trainer, predict_dataset=None):
 
     return predictions
 
-preds = inference(classification_trainer)
+preds = inference(classification_trainer, test_df)
+
+print(preds)
 test["pred_label"] = [id2label[x] for x in preds]
 
 results = test[["text", "label", "pred_label"]]

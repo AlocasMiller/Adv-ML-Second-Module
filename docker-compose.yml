@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    ports:
+      - "5000:5000"
+    volumes:
+      - /mnt/C/Users/ALS/Documents/GitHub/Adv-ML-Second-Module/data:/Adv-ML-Second-Module/data
